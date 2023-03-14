@@ -1,0 +1,44 @@
+{
+  "name": "rest-country-app",
+  "version": "1.0.0",
+  "description": "A React app to display information about countries",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\\\" && exit 1",
+    "start": "webpack serve --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChrisSturgeon/REST-Country-App.git"
+  },
+  "keywords": [
+    "React",
+    "REST"
+  ],
+  "author": "Chris Sturgeon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChrisSturgeon/REST-Country-App/issues"
+  },
+  "homepage": "https://github.com/ChrisSturgeon/REST-Country-App#readme",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.9.0",
+    "styled-components": "^5.3.9"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.3",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
+    "babel-loader": "^9.1.2",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^6.7.3",
+    "html-webpack-plugin": "^5.5.0",
+    "style-loader": "^3.3.2",
+    "webpack": "^5.76.1",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
+  }
+}
