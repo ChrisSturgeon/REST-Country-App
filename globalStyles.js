@@ -33,6 +33,8 @@ const GlobalStyle = createGlobalStyle`
     overflow-wrap: break-word;
   }
 
+
+
   #root, #__next {
     isolation: isolate;
   }
@@ -40,11 +42,18 @@ const GlobalStyle = createGlobalStyle`
   // My global CSS
 
   body {
+    font-family: 'Nunito Sans', sans-serif;
+  }
+
+  #root {
     min-height: 100vh;
     min-height: 100dvh;
     display: grid;
     grid-template-rows: auto 1fr auto;
+
   }
+
+  
 `;
 
 export default GlobalStyle;

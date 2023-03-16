@@ -1,6 +1,6 @@
-import React from 'react';
-import { StyledButton } from './Button.style';
+// import React from 'react';
+// import { StyledButton } from './Button.style';
 
-export default function Button() {
-  return <StyledButton>Hi</StyledButton>;
-}
+// export default function Button() {
+//   return <StyledButton>Hi</StyledButton>;
+// }
