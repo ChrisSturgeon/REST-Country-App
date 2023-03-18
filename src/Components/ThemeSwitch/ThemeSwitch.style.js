@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '../../../devices';
 
 export const StyledButton = styled.button`
   position: relative;
@@ -11,6 +12,10 @@ export const StyledButton = styled.button`
   border-radius: 100vw;
   background-color: ${(props) => (props.darkMode ? 'grey' : 'lightblue')};
   transition: background-color 300ms ease-in-out;
+
+  @media ${device.tablet} {
+    margin-left: auto;
+  }
 
   div {
     position: absolute;

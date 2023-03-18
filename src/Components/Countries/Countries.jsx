@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { localData } from '../../../data.js';
+import FilterBar from '../FilterBar/FilterBar.jsx';
+import { StyledDiv } from './Countries.style.js';
 
 export default function Countries() {
   const [countries, setCountries] = useState(null);
@@ -157,9 +159,22 @@ export default function Countries() {
     window.sessionStorage.setItem('sort', JSON.stringify(sort));
   }, [sort]);
 
+  // useEffect(() => {
+  //   if (countries) {
+  //     const unique = [];
+  //     countries.forEach((country) => {
+  //       if (!unique.includes(country.region)) {
+  //         unique.push(country.region);
+  //       }
+  //       console.log(unique);
+  //     });
+  //   }
+  // }, [countries]);
+
   return (
-    <div>
-      <button onClick={clearFilters}>Clear</button>
+    <StyledDiv>
+      <FilterBar searchName={sort.name} updateSearchName={updateSearchName} />
+      {/* <button onClick={clearFilters}>Clear</button>
       <button
         onClick={() => {
           console.log(countries);
@@ -188,8 +203,6 @@ export default function Countries() {
       >
         Filter by Europe
       </button>
-      <input value={sort.name} onChange={(e) => updateSearchName(e)}></input>
-      <div>I'm the countries component</div>
       {displayed &&
         displayed.map((country) => {
           return (
@@ -201,8 +214,8 @@ export default function Countries() {
               ></img>
             </div>
           );
-        })}
+        })} */}
       {noCountries && <div>No Countries match your search!</div>}
-    </div>
+    </StyledDiv>
   );
 }
