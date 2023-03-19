@@ -6,11 +6,11 @@ import Select from 'react-select';
 
 const StyledSelect = styled(Select)`
   /* color: ${(props) => props.theme.text}; */
-  padding: 2em;
+  /* padding: 2em; */
 
   .Select__control {
-    height: 40px;
-    width: 100%;
+    height: 100%;
+    width: 120%;
 
     border: none;
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
@@ -34,7 +34,7 @@ const StyledSelect = styled(Select)`
 
   .Select__input-container {
     color: ${(props) => props.theme.text};
-    padding: 2em;
+    /* padding: 2em; */
   }
 
   .Select__single-value {
@@ -78,6 +78,7 @@ export default function RegionFilter() {
     <StyledSelect
       classNamePrefix="Select"
       options={options}
+      placeholder={'Filter by Region'}
       // value={{ value: 'hhh', label: 'hxf' }}
     />
   );
