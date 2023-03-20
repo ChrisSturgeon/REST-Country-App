@@ -1,26 +1,24 @@
 import React from 'react';
-// import { StyledSelect } from './RegionFilter.style';
-
+import { StyledFilterWrapper } from './RegionFilter.style';
 import styled from 'styled-components';
 import Select from 'react-select';
 
 const StyledSelect = styled(Select)`
-  /* color: ${(props) => props.theme.text}; */
-  /* padding: 2em; */
-
   .Select__control {
-    height: 100%;
-    width: 120%;
-
+    height: 68px;
+    width: 100%;
+    flex-basis: 1;
+    left: auto;
     border: none;
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     background-color: ${(props) => props.theme.primary};
+    padding-left: 0.5em;
     cursor: pointer;
   }
 
-  .Select__control:hover {
-    /* border-color: #a1a1a1; */
+  .Select__control--is-focused {
+    background-color: 'red';
   }
 
   .Select__control--is-focused {
@@ -34,7 +32,6 @@ const StyledSelect = styled(Select)`
 
   .Select__input-container {
     color: ${(props) => props.theme.text};
-    /* padding: 2em; */
   }
 
   .Select__single-value {
@@ -46,7 +43,6 @@ const StyledSelect = styled(Select)`
   }
 
   .Select__menu {
-    /* color: ${(props) => props.theme.text}; */
     background-color: ${(props) => props.theme.primary};
   }
 
@@ -64,22 +60,43 @@ const StyledSelect = styled(Select)`
 `;
 
 const options = [
-  { value: '', label: 'All' },
   { value: 'Africa', label: 'Africa' },
   { value: 'Americas', label: 'Americas' },
   { value: 'Antarctic', label: 'Antarctic' },
-  { value: 'Asia', label: 'Asisa' },
+  { value: 'Asia', label: 'Asia' },
   { value: 'Europe', label: 'Europe' },
   { value: 'Oceania', label: 'Oceania' },
 ];
-export default function RegionFilter() {
-  // return <StyledSelect classNamePrefix="Select" options={options} />;
+export default function RegionFilter({ regionFilter, setSort }) {
+  const selectValue = regionFilter
+    ? { value: regionFilter, label: regionFilter }
+    : null;
+
+  function handleChange(selectedOption) {
+    if (selectedOption === null) {
+      setSort((prev) => ({
+        ...prev,
+        region: '',
+      }));
+    } else {
+      setSort((prev) => ({
+        ...prev,
+        region: selectedOption.value,
+      }));
+    }
+  }
+
   return (
-    <StyledSelect
-      classNamePrefix="Select"
-      options={options}
-      placeholder={'Filter by Region'}
-      // value={{ value: 'hhh', label: 'hxf' }}
-    />
+    <StyledFilterWrapper>
+      <StyledSelect
+        classNamePrefix="Select"
+        options={options}
+        placeholder={'Filter by Region'}
+        onChange={handleChange}
+        isClearable
+        backspaceRemovesValue
+        value={selectValue}
+      />
+    </StyledFilterWrapper>
   );
 }

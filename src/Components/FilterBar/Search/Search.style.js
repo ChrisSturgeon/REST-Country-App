@@ -1,9 +1,15 @@
 import styled from 'styled-components';
+import { device } from '../../../../devices';
 
 export const StyledSearch = styled.div`
   position: relative;
   display: flex;
-  width: clamp(200px, 300px, 100%);
+  width: 100%;
+
+  @media ${device.tablet} {
+    max-width: 450px;
+  }
+
   background-color: ${(props) => props.theme.primary};
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
@@ -15,6 +21,11 @@ export const StyledSearch = styled.div`
     padding: 0.75em 1em;
     padding-top: 2em;
     color: ${(props) => props.theme.text};
+
+    &:focus {
+      outline: 1px solid black;
+      border-radius: 5px;
+    }
   }
 
   label {

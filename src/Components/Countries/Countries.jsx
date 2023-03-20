@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { localData } from '../../../data.js';
 import FilterBar from '../FilterBar/FilterBar.jsx';
-import { StyledDiv } from './Countries.style.js';
+import { CountriesWrapper } from './Countries.style.js';
 
 export default function Countries() {
   const [countries, setCountries] = useState(null);
@@ -9,7 +9,7 @@ export default function Countries() {
   const [noCountries, setNoCountries] = useState(false);
   const [sort, setSort] = useState({
     type: 'alphabetical',
-    region: false,
+    region: '',
     reversed: false,
     name: '',
   });
@@ -90,9 +90,11 @@ export default function Countries() {
     if (sort.region) {
       allCountries = filterByRegion(allCountries);
     }
+
     if (sort.type === 'alphabetical') {
       allCountries = sortAlphabetically(allCountries);
     }
+
     if (sort.type === 'population') {
       allCountries = sortByPopulation(allCountries);
     }
@@ -172,50 +174,68 @@ export default function Countries() {
   // }, [countries]);
 
   return (
-    <StyledDiv>
-      <FilterBar searchName={sort.name} updateSearchName={updateSearchName} />
-      {/* <button onClick={clearFilters}>Clear</button>
-      <button
-        onClick={() => {
-          console.log(countries);
-        }}
-      >
-        Log Countries
-      </button>
-      <button onClick={() => updateSortType('alphabetical')}>
-        Sort alphabetically
-      </button>
-      <button onClick={() => updateSortType('population')}>
-        Sort by Population
-      </button>
-
-      <button
-        onClick={() => {
-          assignRegionFilter('Africa');
-        }}
-      >
-        Filter by Africa
-      </button>
-      <button
-        onClick={() => {
-          assignRegionFilter('Europe');
-        }}
-      >
-        Filter by Europe
-      </button>
-      {displayed &&
-        displayed.map((country) => {
-          return (
-            <div key={country.name.common}>
-              {country.name.common}
-              <img
-                src={country.flags.svg}
-                style={{ width: '200px', objectFit: 'cover' }}
-              ></img>
-            </div>
-          );
-        })} */}
-      {noCountries && <div>No Countries match your search!</div>}
-    </StyledDiv>
+    <CountriesWrapper>
+      <main>
+        <FilterBar
+          regionFilter={sort.region}
+          setSort={setSort}
+          searchName={sort.name}
+          updateSearchName={updateSearchName}
+        />
+        {/* <button onClick={clearFilters}>Clear</button>
+        <button
+          onClick={() => {
+            console.log(countries);
+          }}
+        >
+          Log Countries
+        </button>
+        <button onClick={() => updateSortType('alphabetical')}>
+          Sort alphabetically
+        </button>
+        <button onClick={() => updateSortType('population')}>
+          Sort by Population
+        </button>
+        <button
+          onClick={() => {
+            assignRegionFilter('Africa');
+          }}
+        >
+          Filter by Africa
+        </button>
+        <button
+          onClick={() => {
+            assignRegionFilter('Europe');
+          }}
+        >
+          Filter by Europe
+        </button>
+        {displayed &&
+          displayed.map((country) => {
+            return (
+              <div key={country.name.common}>
+                {country.name.common}
+                <img
+                  src={country.flags.svg}
+                  style={{ width: '200px', objectFit: 'cover' }}
+                ></img>
+              </div>
+            );
+          })} */}
+        {displayed &&
+          displayed.map((country) => {
+            return (
+              <div key={country.name.common}>
+                {country.name.common}
+                <img
+                  src={country.flags.svg}
+                  style={{ width: '200px', objectFit: 'cover' }}
+                ></img>
+              </div>
+            );
+          })}
+        {noCountries && <div>No Countries match your search!</div>}
+      </main>
+    </CountriesWrapper>
   );
 }
