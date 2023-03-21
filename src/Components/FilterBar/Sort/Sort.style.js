@@ -1,15 +1,54 @@
-import React from 'react';
-import { StyledFilterWrapper } from './RegionFilter.style';
 import styled from 'styled-components';
 import Select from 'react-select';
+import { device } from '../../../../devices';
 
-export const StyledSelect = styled(Select)`
+export const SortWrapper = styled.div`
+  display: flex;
+  gap: 0.5em;
+  width: 100%;
+  width: 100%;
+
+  @media ${device.tablet} {
+    width: 250px;
+  }
+
+  @media ${device.laptop} {
+    margin-left: auto;
+  }
+
+  button {
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+    background-color: ${(props) => props.theme.primary};
+    border: none;
+    border-radius: 5px;
+    transition: transform 200ms ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &:focus {
+      outline-style: solid;
+      outline-width: 1px;
+      outline-color: ${(props) => props.theme.text};
+    }
+    svg {
+      height: 2rem;
+      width: 2rem;
+
+      path {
+        fill: ${(props) => props.theme.text};
+      }
+    }
+  }
+`;
+
+export const StyledSortSelect = styled(Select)`
   .Select__control {
     height: 72px;
-    width: 100%;
-    flex-basis: 1;
     left: auto;
     border: none;
+    flex-grow: 1;
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     background-color: ${(props) => props.theme.primary};
@@ -59,44 +98,3 @@ export const StyledSelect = styled(Select)`
     background-color: ${(props) => props.theme.reactSelectSelected};
   }
 `;
-
-const options = [
-  { value: 'Africa', label: 'Africa' },
-  { value: 'Americas', label: 'Americas' },
-  { value: 'Antarctic', label: 'Antarctic' },
-  { value: 'Asia', label: 'Asia' },
-  { value: 'Europe', label: 'Europe' },
-  { value: 'Oceania', label: 'Oceania' },
-];
-export default function RegionFilter({ regionFilter, setSort }) {
-  const selectValue = regionFilter
-    ? { value: regionFilter, label: regionFilter }
-    : null;
-
-  function handleChange(selectedOption) {
-    if (selectedOption === null) {
-      setSort((prev) => ({
-        ...prev,
-        region: '',
-      }));
-    } else {
-      setSort((prev) => ({
-        ...prev,
-        region: selectedOption.value,
-      }));
-    }
-  }
-
-  return (
-    <StyledFilterWrapper>
-      <StyledSelect
-        classNamePrefix="Select"
-        options={options}
-        placeholder={'Filter by Region'}
-        onChange={handleChange}
-        isClearable
-        value={selectValue}
-      />
-    </StyledFilterWrapper>
-  );
-}

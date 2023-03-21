@@ -35,6 +35,13 @@ export default function Countries() {
     }
   }
 
+  function reverseSort() {
+    setSort((prev) => ({
+      ...prev,
+      reversed: !sort.reversed,
+    }));
+  }
+
   function updateSearchName(e) {
     console.log(e.target.value);
     setSort((prev) => ({
@@ -112,14 +119,6 @@ export default function Countries() {
     }
   }
 
-  function clearFilters() {
-    setSort((prev) => ({
-      ...prev,
-      region: false,
-      name: '',
-    }));
-  }
-
   useEffect(() => {
     // Sets list of all countries into state from API or local copy as backup
     async function getCountries() {
@@ -161,18 +160,6 @@ export default function Countries() {
     window.sessionStorage.setItem('sort', JSON.stringify(sort));
   }, [sort]);
 
-  // useEffect(() => {
-  //   if (countries) {
-  //     const unique = [];
-  //     countries.forEach((country) => {
-  //       if (!unique.includes(country.region)) {
-  //         unique.push(country.region);
-  //       }
-  //       console.log(unique);
-  //     });
-  //   }
-  // }, [countries]);
-
   return (
     <CountriesWrapper>
       <main>
@@ -181,47 +168,8 @@ export default function Countries() {
           setSort={setSort}
           searchName={sort.name}
           updateSearchName={updateSearchName}
+          reverseSort={reverseSort}
         />
-        {/* <button onClick={clearFilters}>Clear</button>
-        <button
-          onClick={() => {
-            console.log(countries);
-          }}
-        >
-          Log Countries
-        </button>
-        <button onClick={() => updateSortType('alphabetical')}>
-          Sort alphabetically
-        </button>
-        <button onClick={() => updateSortType('population')}>
-          Sort by Population
-        </button>
-        <button
-          onClick={() => {
-            assignRegionFilter('Africa');
-          }}
-        >
-          Filter by Africa
-        </button>
-        <button
-          onClick={() => {
-            assignRegionFilter('Europe');
-          }}
-        >
-          Filter by Europe
-        </button>
-        {displayed &&
-          displayed.map((country) => {
-            return (
-              <div key={country.name.common}>
-                {country.name.common}
-                <img
-                  src={country.flags.svg}
-                  style={{ width: '200px', objectFit: 'cover' }}
-                ></img>
-              </div>
-            );
-          })} */}
         {displayed &&
           displayed.map((country) => {
             return (
