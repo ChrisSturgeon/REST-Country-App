@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { localData } from '../../../data.js';
 import FilterBar from '../FilterBar/FilterBar.jsx';
+import Grid from '../Grid/Grid.jsx';
 import { CountriesWrapper } from './Countries.style.js';
 
 export default function Countries() {
@@ -170,7 +171,8 @@ export default function Countries() {
           updateSearchName={updateSearchName}
           reverseSort={reverseSort}
         />
-        {displayed &&
+        <Grid countries={displayed} />
+        {/* {displayed &&
           displayed.map((country) => {
             return (
               <div key={country.name.common}>
@@ -181,7 +183,7 @@ export default function Countries() {
                 ></img>
               </div>
             );
-          })}
+          })} */}
         {noCountries && <div>No Countries match your search!</div>}
       </main>
     </CountriesWrapper>

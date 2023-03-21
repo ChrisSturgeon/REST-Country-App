@@ -9,11 +9,6 @@ import {
   Navigate,
 } from 'react-router-dom';
 
-// import countryList from 'react-select-country-list';
-// import './style.css';
-// import Button from './Components/Button/Button.jsx';
-// import Select from 'react-select';
-
 import Countries from './src/Components/Countries/Countries';
 
 import { lightTheme, darkTheme } from './themes';
@@ -21,7 +16,7 @@ import { useDarkMode } from './hooks/useDarkMode';
 import Footer from './src/Components/Footer/Footer';
 import Country from './src/Components/Country/Country';
 
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
   {
     path: '/',
     element: <Navigate to="/all" />,
