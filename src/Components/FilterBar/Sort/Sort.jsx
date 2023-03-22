@@ -14,7 +14,8 @@ const styles = {
   }),
 };
 
-export default function Sort({ reverseSort, setSort }) {
+export default function Sort({ reverseSort, setSort, sort }) {
+  const selectValue = sort.type === 'alphabetical' ? options[0] : options[1];
   function handleTypeChange(selectedOption) {
     if (selectedOption === null) {
       setSort((prev) => ({
@@ -39,9 +40,10 @@ export default function Sort({ reverseSort, setSort }) {
         classNamePrefix="Select"
         options={options}
         placeholder={'Sort by...'}
-        isClearable
         onChange={handleTypeChange}
         styles={styles}
+        value={selectValue}
+        aria-label={'Sort by'}
       />
       <button aria-label="reverse sort order" onClick={handleDirectionChange}>
         <svg

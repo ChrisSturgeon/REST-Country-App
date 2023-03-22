@@ -7,7 +7,7 @@ export const StyledSearch = styled.div`
   width: 100%;
 
   @media ${device.tablet} {
-    max-width: 450px;
+    max-width: 400px;
   }
 
   svg {

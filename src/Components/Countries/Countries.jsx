@@ -15,27 +15,6 @@ export default function Countries() {
     name: '',
   });
 
-  function assignRegionFilter(region) {
-    setSort((prev) => ({
-      ...prev,
-      region: region,
-    }));
-  }
-
-  function updateSortType(type) {
-    if (sort.type !== type) {
-      setSort((prev) => ({
-        ...prev,
-        type: type,
-      }));
-    } else {
-      setSort((prev) => ({
-        ...prev,
-        reversed: !prev.reversed,
-      }));
-    }
-  }
-
   function reverseSort() {
     setSort((prev) => ({
       ...prev,
@@ -170,20 +149,10 @@ export default function Countries() {
           searchName={sort.name}
           updateSearchName={updateSearchName}
           reverseSort={reverseSort}
+          sort={sort}
         />
         <Grid countries={displayed} />
-        {/* {displayed &&
-          displayed.map((country) => {
-            return (
-              <div key={country.name.common}>
-                {country.name.common}
-                <img
-                  src={country.flags.svg}
-                  style={{ width: '200px', objectFit: 'cover' }}
-                ></img>
-              </div>
-            );
-          })} */}
+
         {noCountries && <div>No Countries match your search!</div>}
       </main>
     </CountriesWrapper>

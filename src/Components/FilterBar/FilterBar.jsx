@@ -11,12 +11,13 @@ export default function FilterBar({
   searchName,
   updateSearchName,
   reverseSort,
+  sort,
 }) {
   return (
     <StyledFilterBar>
       <Search searchName={searchName} updateSearchName={updateSearchName} />
       <RegionFilter regionFilter={regionFilter} setSort={setSort} />
-      <Sort reverseSort={reverseSort} setSort={setSort} />
+      <Sort reverseSort={reverseSort} sort={sort} setSort={setSort} />
     </StyledFilterBar>
   );
 }
