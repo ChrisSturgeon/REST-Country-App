@@ -30,9 +30,11 @@ describe('Country Detail', () => {
   // });
 
   it('Does something', async () => {
-    await act(async () => {
-      renderSetup();
-    });
+    // await act(async () => {
+    //   renderSetup();
+    // });
+
+    renderSetup();
 
     await waitFor(() => {
       expect(

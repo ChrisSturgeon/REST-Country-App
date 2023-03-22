@@ -8,7 +8,7 @@ export default function Country() {
 
   useEffect(() => {
     async function getCountryData() {
-      const url = `https://restcountries.com/v3.1/name`;
+      const url = `https://restcountries.com/v3.1/name/${country}/`;
       const response = await fetch(url);
 
       if (response.status === 200) {
@@ -27,7 +27,10 @@ export default function Country() {
 
   return (
     <StyledCountryWrapper>
-      <div>I'm the country component for Portugal</div>
+      {/* <div>I'm the country component for Portugal</div> */}
+      {countryData && (
+        <div>I'm the country component for {countryData.name.common} </div>
+      )}
     </StyledCountryWrapper>
   );
 }
