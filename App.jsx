@@ -16,7 +16,7 @@ import { useDarkMode } from './hooks/useDarkMode';
 import Footer from './src/Components/Footer/Footer';
 import Country from './src/Components/Country/Country';
 
-export const router = createBrowserRouter([
+export const routesConfig = createBrowserRouter([
   {
     path: '/',
     element: <Navigate to="/all" />,
@@ -39,7 +39,7 @@ export default function App() {
       <GlobalStyle />
       <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
         <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-        <RouterProvider router={router} />
+        <RouterProvider router={routesConfig} />
         <Footer />
       </ThemeProvider>
     </>

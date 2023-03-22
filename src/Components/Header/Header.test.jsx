@@ -3,7 +3,7 @@ import React from 'react';
 import Header from './Header';
 
 describe('Header Tests', () => {
-  it.skip('Matches snapshot', () => {
+  it('Matches snapshot', () => {
     render(<Header />);
     expect(document.body).toMatchSnapshot();
   });
