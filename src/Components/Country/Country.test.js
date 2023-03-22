@@ -1,15 +1,7 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
-import {
-  RouterProvider,
-  createMemoryRouter,
-  MemoryRouter,
-  Routes,
-  Route,
-} from 'react-router-dom';
-import { routesConfig } from '../../../App';
+import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import Country from './Country';
-import { act } from 'react-dom/test-utils';
 
 function renderSetup() {
   render(
@@ -22,18 +14,7 @@ function renderSetup() {
 }
 
 describe('Country Detail', () => {
-  // it('Does something', async () => {
-  //   renderSetup();
-  //   expect(
-  //     screen.getByText(/I'm the country component for Portugal/i)
-  //   ).toBeInTheDocument();
-  // });
-
-  it('Does something', async () => {
-    // await act(async () => {
-    //   renderSetup();
-    // });
-
+  it('Renders with correct name', async () => {
     renderSetup();
 
     await waitFor(() => {

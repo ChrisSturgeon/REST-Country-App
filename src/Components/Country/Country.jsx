@@ -13,21 +13,14 @@ export default function Country() {
 
       if (response.status === 200) {
         const data = await response.json();
-        setCountryData(data[0]);
+        setCountryData(data);
       }
     }
     getCountryData();
   }, []);
 
-  useEffect(() => {
-    if (countryData) {
-      console.log(countryData);
-    }
-  }, [countryData]);
-
   return (
     <StyledCountryWrapper>
-      {/* <div>I'm the country component for Portugal</div> */}
       {countryData && (
         <div>I'm the country component for {countryData.name.common} </div>
       )}
