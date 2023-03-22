@@ -8,12 +8,13 @@ export default function Country() {
 
   useEffect(() => {
     async function getCountryData() {
-      const url = `https://restcountries.com/v3.1/name/${country}/`;
+      const url = `https://restcountries.com/v3.1/name/${country}?fullText=true`;
       const response = await fetch(url);
 
       if (response.status === 200) {
         const data = await response.json();
-        setCountryData(data);
+        console.log(typeof data);
+        setCountryData(data[0]);
       }
     }
     getCountryData();
