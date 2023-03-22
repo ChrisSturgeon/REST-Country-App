@@ -9,7 +9,7 @@ export default function Countries() {
   const [displayed, setDisplayed] = useState(null);
   const [noCountries, setNoCountries] = useState(false);
   const [sort, setSort] = useState({
-    type: 'alphabetical',
+    type: 'population',
     region: '',
     reversed: false,
     name: '',
