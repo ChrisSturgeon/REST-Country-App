@@ -57,7 +57,7 @@ export const StyledSearch = styled.div`
 
   button {
     position: absolute;
-    left: 85%;
+    left: 88%;
     height: 100%;
     width: 40px;
     display: flex;

@@ -1,12 +1,12 @@
 import React from 'react';
 import { StyledCountryCard } from './CountryCard.style';
-import { commonSeparateNumber } from '../../../helpers';
+import { commaSeparateNumbers } from '../../../helpers';
 
 export default function CountryCard({ country }) {
-  const formattedPopulation = commonSeparateNumber(country.population);
+  const formattedPopulation = commaSeparateNumbers(country.population);
 
   return (
-    <StyledCountryCard to={`/${country.name.common}`}>
+    <StyledCountryCard to={`/${country.cca3}`}>
       <img src={country.flags.svg} alt={country.flags.alt} />
 
       <div>

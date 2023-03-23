@@ -26,7 +26,7 @@ export const routesConfig = createBrowserRouter([
     element: <Countries />,
   },
   {
-    path: '/:country/',
+    path: '/:countryCode/',
     element: <Country />,
   },
 ]);

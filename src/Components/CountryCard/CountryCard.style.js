@@ -11,9 +11,17 @@ export const StyledCountryCard = styled(Link)`
   border-radius: 10px;
   color: ${(props) => props.theme.text};
   text-decoration: none;
+  transition: transform 200ms ease-in-out, box-shadow 150ms ease-in-out;
 
   @media ${device.tablet} {
     grid-template-rows: 200px 1fr;
+  }
+
+  &:focus,
+  &:hover {
+    outline: none;
+    box-shadow: ${(props) => `0px 0px 0 1px ${props.theme.text}`};
+    transform: scale(1.02);
   }
 
   img {
@@ -22,7 +30,6 @@ export const StyledCountryCard = styled(Link)`
     object-fit: contain;
     height: 100%;
     width: 100%;
-    /* background-color: pink; */
 
     @media ${device.tablet} {
       object-fit: cover;
@@ -33,7 +40,6 @@ export const StyledCountryCard = styled(Link)`
     display: flex;
     flex-direction: column;
     padding: 1.5em 2em 2em 2em;
-    /* background-color: red; */
 
     h2 {
       margin-bottom: 0.5em;

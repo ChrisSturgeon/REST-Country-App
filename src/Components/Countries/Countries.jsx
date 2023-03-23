@@ -88,7 +88,9 @@ export default function Countries() {
     // Sets list of all countries into state from API or local copy as backup
     async function getCountries() {
       try {
-        const response = await fetch('https://restcountries.com/v3.1/all');
+        const response = await fetch(
+          'https://restcountries.com/v3.1/all?fields=name,region,flags,population,capital,cca3'
+        );
         if (response.status === 200) {
           const data = await response.json();
           setCountries(data);
@@ -136,7 +138,7 @@ export default function Countries() {
         />
         <Grid countries={displayed} />
 
-        {noCountries && <div>No Countries match your search!</div>}
+        {noCountries && <div>No countries match your search!</div>}
       </main>
     </CountriesWrapper>
   );

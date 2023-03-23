@@ -5,22 +5,44 @@ import Country from './Country';
 
 function renderSetup() {
   render(
-    <MemoryRouter initialEntries={['/Portugal']}>
+    <MemoryRouter initialEntries={['/PRT']}>
       <Routes>
-        <Route path="/:country/" element={<Country />}></Route>
+        <Route path="/:countryCode/" element={<Country />}></Route>
       </Routes>
     </MemoryRouter>
   );
 }
 
 describe('Country Detail', () => {
-  it('Renders with correct name', async () => {
+  it('Renders with correct country name', async () => {
     renderSetup();
 
     await waitFor(() => {
       expect(
-        screen.getByText(/I'm the country component for Portugal/i)
+        screen.getByRole('heading', { name: 'Portugal' })
       ).toBeInTheDocument();
+    });
+  });
+
+  it('Renders with flag img with src from component state', async () => {
+    renderSetup();
+
+    await waitFor(() => {
+      expect(screen.getByRole('img')).toHaveAttribute(
+        'src',
+        'https://flagcdn.com/pt.svg'
+      );
+    });
+  });
+
+  it('Has Alt attribute on flag image', async () => {
+    renderSetup();
+
+    await waitFor(() => {
+      expect(screen.getByRole('img')).toHaveAttribute(
+        'alt',
+        'The flag of Portugal is composed of two vertical bands of green and red in the ratio of 2:3, with the coat of arms of Portugal centered over the two-color boundary.'
+      );
     });
   });
 });

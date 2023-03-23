@@ -7,7 +7,7 @@ const mockCountry = {
   name: {
     common: 'United Kingdom',
   },
-
+  cca3: 'GBR',
   flags: {
     svg: 'https://flagcdn.com/gb.svg',
     alt: 'The flag of the United Kingdom — the Union Jack — has a blue field. It features the white-edged red cross of Saint George superimposed on the diagonal red cross of Saint Patrick which is superimposed on the diagonal white cross of Saint Andrew.',
@@ -34,7 +34,7 @@ describe('Country Card', () => {
 
   it('Renders anchor tag with href country from props', () => {
     renderSetup();
-    expect(screen.getByRole('link')).toHaveAttribute('href', '/United Kingdom');
+    expect(screen.getByRole('link')).toHaveAttribute('href', '/GBR');
   });
 
   it('Renders heading 2 in link', () => {
