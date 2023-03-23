@@ -68,9 +68,9 @@ const options = [
   { value: 'Europe', label: 'Europe' },
   { value: 'Oceania', label: 'Oceania' },
 ];
-export default function RegionFilter({ regionFilter, setSort }) {
-  const selectValue = regionFilter
-    ? { value: regionFilter, label: regionFilter }
+export default function RegionFilter({ sort, setSort }) {
+  const selectValue = sort.region
+    ? { value: sort.region, label: sort.region }
     : null;
 
   function handleChange(selectedOption) {

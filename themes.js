@@ -4,6 +4,8 @@ const lightTheme = {
   text: '#000',
   globeSVG: 'hsl(0, 0%, 0%)',
   reactSelectSelected: 'hsl(0, 0%, 42%)',
+  svgGrey: 'hsl(0, 0%, 75%)',
+  svgGreyHovered: 'hsl(0, 0%, 42%)',
 };
 
 const darkTheme = {
@@ -12,6 +14,8 @@ const darkTheme = {
   text: '#FFFF',
   globeSVG: 'hsl(0, 0%, 100%)',
   reactSelectSelected: 'hsl(205, 37%, 39%)',
+  svgGrey: 'hsl(0, 0%, 78%)',
+  svgGreyHovered: 'hsl(0, 0%, 100%)',
 };
 
 export { lightTheme, darkTheme };

@@ -21,7 +21,7 @@ describe('Sort', () => {
   it('Triggers reverse order sort on button click', async () => {
     const user = userEvent.setup();
     const mockFunction = jest.fn();
-    render(<Sort sort={mockSort} reverseSort={mockFunction} />);
+    render(<Sort sort={mockSort} setSort={mockFunction} />);
     await user.click(screen.getByRole('button'));
     expect(mockFunction).toHaveBeenCalled();
   });

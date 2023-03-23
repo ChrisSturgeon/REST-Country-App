@@ -15,21 +15,6 @@ export default function Countries() {
     name: '',
   });
 
-  function reverseSort() {
-    setSort((prev) => ({
-      ...prev,
-      reversed: !sort.reversed,
-    }));
-  }
-
-  function updateSearchName(e) {
-    console.log(e.target.value);
-    setSort((prev) => ({
-      ...prev,
-      name: e.target.value,
-    }));
-  }
-
   function filterByRegion(countries) {
     const allCountries = [...countries];
     return allCountries.filter((country) => {
@@ -116,7 +101,7 @@ export default function Countries() {
       }
     }
 
-    // Re-instates any previous filters and sorts within window session
+    // Reinstates any previous filters and sorts held in session storage
     function retrieveSessionSort() {
       if (window.sessionStorage.getItem('sort')) {
         setSort(JSON.parse(window.sessionStorage.getItem('sort')));
@@ -135,7 +120,7 @@ export default function Countries() {
     }
   }, [countries, sort]);
 
-  // Updates session storage copy of sort state on change
+  // Updates session storage copy of sort after sort state change
   useEffect(() => {
     window.sessionStorage.setItem('sort', JSON.stringify(sort));
   }, [sort]);
@@ -147,8 +132,6 @@ export default function Countries() {
           regionFilter={sort.region}
           setSort={setSort}
           searchName={sort.name}
-          updateSearchName={updateSearchName}
-          reverseSort={reverseSort}
           sort={sort}
         />
         <Grid countries={displayed} />

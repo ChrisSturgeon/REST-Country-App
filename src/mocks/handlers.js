@@ -6,7 +6,6 @@ export const handlers = [
     'https://restcountries.com/v3.1/name/:countryName',
     (req, res, ctx) => {
       const { countryName } = req.params;
-      console.log(countryName);
       return res(
         ctx.status(200),
         ctx.json([

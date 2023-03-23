@@ -10,21 +10,21 @@ export const StyledSearch = styled.div`
     max-width: 400px;
   }
 
-  svg {
+  > svg {
     position: absolute;
     height: 1.5em;
     width: 1.5em;
     top: ${(props) => (props.hasFocus || props.searchName ? '2rem' : '1.5rem')};
     left: 1em;
     transition: top 200ms ease-in-out, font-size 200ms ease-in-out;
+    cursor: pointer;
 
     path {
-      stroke: ${(props) => props.theme.text};
+      stroke: ${(props) => props.theme.svgGrey};
     }
   }
 
   background-color: ${(props) => props.theme.primary};
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
 
   input {
@@ -32,14 +32,14 @@ export const StyledSearch = styled.div`
     background-color: transparent;
     width: 100%;
     padding: 2em 1em 1em 3em;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+    border-radius: inherit;
     color: ${(props) => props.theme.text};
+    cursor: pointer;
 
     &:focus {
-      outline: 1px solid black;
-      outline-style: solid;
-      outline-width: 1px;
-      outline-color: ${(props) => props.theme.text};
-      border-radius: 5px;
+      outline: none;
+      box-shadow: ${(props) => `0px 0px 0 1px ${props.theme.text}`};
     }
   }
 
@@ -52,5 +52,35 @@ export const StyledSearch = styled.div`
     font-size: ${(props) =>
       props.hasFocus || props.searchName ? '0.7rem' : '1rem'};
     transition: top 200ms ease-in-out, font-size 200ms ease-in-out;
+    cursor: pointer;
+  }
+
+  button {
+    position: absolute;
+    left: 85%;
+    height: 100%;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    svg {
+      height: 22%;
+      g path {
+        stroke-width: 4;
+        stroke: ${(props) => props.theme.svgGrey};
+      }
+    }
+
+    &:focus,
+    &:hover {
+      outline: none;
+
+      svg g path {
+        stroke: ${(props) => props.theme.svgGreyHovered};
+      }
+    }
   }
 `;

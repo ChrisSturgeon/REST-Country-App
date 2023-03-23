@@ -13,7 +13,6 @@ export default function Country() {
 
       if (response.status === 200) {
         const data = await response.json();
-        console.log(typeof data);
         setCountryData(data[0]);
       }
     }

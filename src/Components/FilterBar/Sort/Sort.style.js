@@ -23,21 +23,25 @@ export const SortWrapper = styled.div`
     border-radius: 5px;
     transition: transform 200ms ease-in-out;
 
-    &:hover {
-      transform: scale(1.05);
+    &:hover svg path {
+      fill: ${(props) => props.theme.svgGreyHovered};
     }
 
     &:focus {
-      outline-style: solid;
-      outline-width: 1px;
-      outline-color: ${(props) => props.theme.text};
+      outline: none;
+      box-shadow: ${(props) => `0px 0px 0 1px ${props.theme.text}`};
+
+      svg path {
+        fill: ${(props) => props.theme.svgGreyHovered};
+      }
     }
+
     svg {
       height: 2rem;
       width: 2rem;
 
       path {
-        fill: ${(props) => props.theme.text};
+        fill: ${(props) => props.theme.svgGrey};
       }
     }
   }
