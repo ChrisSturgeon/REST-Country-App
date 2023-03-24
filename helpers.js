@@ -1,3 +1,5 @@
+import { localData } from './data';
+
 function commaSeparateNumbers(num) {
   const arr = num.toString().split('');
   if (arr.length >= 5) {
@@ -58,4 +60,27 @@ function formatLanguages(languages) {
   return grammarFormatList(names);
 }
 
-export { commaSeparateNumbers, formatCurrencies, formatLanguages };
+// Returns array of objects with cca3 codes and corresponding common country names
+function findCommonNamesByCountryCodes(codes) {
+  const commonNames = [];
+
+  codes.forEach((code) => {
+    const matchingCountry = localData.find((country) => {
+      return country.cca3 === code;
+    });
+
+    commonNames.push({
+      code: code,
+      name: matchingCountry.name.common,
+    });
+  });
+
+  return commonNames;
+}
+
+export {
+  commaSeparateNumbers,
+  formatCurrencies,
+  formatLanguages,
+  findCommonNamesByCountryCodes,
+};

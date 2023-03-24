@@ -8,6 +8,11 @@ export const handlers = [
       return res(
         ctx.status(200),
         ctx.json({
+          flags: {
+            png: 'https://flagcdn.com/w320/pt.png',
+            svg: 'https://flagcdn.com/pt.svg',
+            alt: 'The flag of Portugal is composed of two vertical bands of green and red in the ratio of 2:3, with the coat of arms of Portugal centered over the two-color boundary.',
+          },
           name: {
             common: 'Portugal',
             official: 'Portuguese Republic',
@@ -18,7 +23,6 @@ export const handlers = [
               },
             },
           },
-          cca3: 'PRT',
           tld: ['.pt'],
           currencies: {
             EUR: {
@@ -34,12 +38,6 @@ export const handlers = [
           },
           borders: ['ESP'],
           population: 10305564,
-          continents: ['Europe'],
-          flags: {
-            png: 'https://flagcdn.com/w320/pt.png',
-            svg: 'https://flagcdn.com/pt.svg',
-            alt: 'The flag of Portugal is composed of two vertical bands of green and red in the ratio of 2:3, with the coat of arms of Portugal centered over the two-color boundary.',
-          },
         })
       );
     }

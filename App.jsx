@@ -22,12 +22,12 @@ export const routesConfig = createBrowserRouter([
     element: <Navigate to="/all" />,
   },
   {
-    path: '/all',
-    element: <Countries />,
-  },
-  {
     path: '/:countryCode/',
     element: <Country />,
+  },
+  {
+    path: '/all',
+    element: <Countries />,
   },
 ]);
 

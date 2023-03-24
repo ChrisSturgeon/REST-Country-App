@@ -23,7 +23,6 @@ export const StyledCountryMain = styled.main`
     }
 
     > div:first-of-type {
-      background-color: red;
       display: flex;
       align-items: center;
       margin-bottom: 2em;
@@ -36,14 +35,23 @@ export const StyledCountryMain = styled.main`
 
     img {
       margin: 0 auto;
+      box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+
+      @media ${device.laptop} {
+        height: clamp(100px, 350px, 100%);
+        margin: 0;
+      }
+    }
+
+    h1 {
+      margin-block: 0.5em;
     }
 
     > div:nth-of-type(2) {
       @media ${device.laptop} {
         margin-left: 4em;
-        /* display: flex;
+        display: flex;
         flex-direction: column;
-        justify-content: space-around; */
       }
     }
   }

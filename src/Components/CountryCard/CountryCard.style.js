@@ -20,8 +20,7 @@ export const StyledCountryCard = styled(Link)`
   &:focus,
   &:hover {
     outline: none;
-    box-shadow: ${(props) => `0px 0px 0 1px ${props.theme.text}`};
-    transform: scale(1.02);
+    transform: scale(1.05);
   }
 
   img {

@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { device } from '../../../../devices';
 
 export const StyledStats = styled.div`
-  background-color: pink;
   display: grid;
   grid-template-rows: auto auto;
   gap: 0.25em;

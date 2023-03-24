@@ -42,7 +42,7 @@ export default function Stats({ country }) {
       <div>
         <div data-testid="domain">
           <span>Top Level Domain: </span>
-          {country.tld}
+          {country.tld[0]}
         </div>
         <div data-testid="currencies">
           <span>Currencies: </span>
