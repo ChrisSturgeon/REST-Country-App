@@ -22,6 +22,7 @@ export const SortWrapper = styled.div`
     border: none;
     border-radius: 5px;
     transition: transform 200ms ease-in-out;
+    cursor: pointer;
 
     &:hover svg path {
       fill: ${(props) => props.theme.svgGreyHovered};
@@ -32,16 +33,17 @@ export const SortWrapper = styled.div`
       box-shadow: ${(props) => `0px 0px 0 1px ${props.theme.text}`};
 
       svg path {
-        fill: ${(props) => props.theme.svgGreyHovered};
+        stroke: ${(props) => props.theme.svgGreyHovered};
       }
     }
 
     svg {
       height: 2rem;
       width: 2rem;
+      transition: transform 200ms ease-in-out;
 
       path {
-        fill: ${(props) => props.theme.svgGrey};
+        stroke: ${(props) => props.theme.svgGrey};
       }
     }
   }

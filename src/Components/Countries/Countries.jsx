@@ -1,19 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import { localData } from '../../../data.js';
-import FilterBar from '../FilterBar/FilterBar.jsx';
-import Grid from '../Grid/Grid.jsx';
 import { CountriesWrapper } from './Countries.style.js';
 
+// Hooks
+import { useDisplayScrollButton } from '../../../hooks/useScrollPosition.js';
+
+// Components
+import FilterBar from '../FilterBar/FilterBar.jsx';
+import Grid from '../Grid/Grid.jsx';
+
 export default function Countries() {
+  const displayScrollButton = useDisplayScrollButton();
   const [countries, setCountries] = useState(null);
   const [displayed, setDisplayed] = useState(null);
   const [noCountries, setNoCountries] = useState(false);
+  const [serverError, setServerError] = useState(false);
   const [sort, setSort] = useState({
     type: 'population',
     region: '',
     reversed: false,
     name: '',
   });
+
+  function scrollToPageTop() {
+    window.scrollTo({
+      top: 0,
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
 
   function filterByRegion(countries) {
     const allCountries = [...countries];
@@ -95,7 +110,7 @@ export default function Countries() {
           const data = await response.json();
           setCountries(data);
         } else {
-          console.log('display error here');
+          setServerError(true);
         }
       } catch (err) {
         console.log('Server is down. Loading data from local...');
@@ -127,6 +142,10 @@ export default function Countries() {
     window.sessionStorage.setItem('sort', JSON.stringify(sort));
   }, [sort]);
 
+  if (serverError) {
+    return <div>Unable to reach server. Please try again later.</div>;
+  }
+
   return (
     <CountriesWrapper>
       <main>
@@ -136,9 +155,34 @@ export default function Countries() {
           searchName={sort.name}
           sort={sort}
         />
-        <Grid countries={displayed} />
+        <Grid countries={displayed} noCountries={noCountries} />
 
-        {noCountries && <div>No countries match your search!</div>}
+        {displayScrollButton && (
+          <button
+            onClick={scrollToPageTop}
+            aria-label={'Scrol back up to top of page'}
+          >
+            <svg
+              width="800px"
+              height="800px"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g id="Arrow / Arrow_Up_LG">
+                <path
+                  id="Vector"
+                  d="M12 3L7 8M12 3L17 8M12 3V21"
+                  stroke="#000000"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </g>
+            </svg>
+            Top
+          </button>
+        )}
       </main>
     </CountriesWrapper>
   );

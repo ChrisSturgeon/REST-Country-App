@@ -26,10 +26,66 @@ export const StyledCountryMain = styled.main`
       display: flex;
       align-items: center;
       margin-bottom: 2em;
+      gap: 1em;
+      font-weight: 600;
 
       @media ${device.laptop} {
         grid-column: 1 / 3;
         margin-bottom: 4em;
+      }
+
+      button,
+      a {
+        text-decoration: none;
+        color: ${(props) => props.theme.text};
+        background-color: ${(props) => props.theme.primary};
+        padding: 0.25em 1em;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.08);
+        border-radius: 5px;
+        border: none;
+        transition: transform 150ms ease-in-out;
+
+        &:focus {
+          outline: 1px solid black;
+        }
+
+        &:focus,
+        &:hover {
+          position: relative;
+          transform: translateY(-3px);
+        }
+      }
+
+      button {
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        cursor: pointer;
+
+        svg {
+          height: 100%;
+          width: 20px;
+        }
+      }
+
+      a {
+        display: flex;
+        gap: 0.5em;
+        align-items: center;
+
+        svg {
+          height: 100%;
+          width: 20px;
+        }
+      }
+
+      a,
+      button {
+        svg {
+          path {
+            fill: ${(props) => props.theme.svgGreyHovered};
+          }
+        }
       }
     }
 
@@ -38,7 +94,7 @@ export const StyledCountryMain = styled.main`
       box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
 
       @media ${device.laptop} {
-        height: clamp(100px, 350px, 100%);
+        max-height: 350px;
         margin: 0;
       }
     }

@@ -3,7 +3,7 @@ import { device } from '../../../devices';
 
 export const StyledHeader = styled.header`
   display: flex;
-  max-width: 100%;
+  width: 100%;
   gap: 1em;
   align-items: center;
   justify-content: space-around;

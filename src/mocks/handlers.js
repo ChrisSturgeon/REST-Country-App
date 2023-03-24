@@ -1,7 +1,6 @@
 import { rest } from 'msw';
 
 export const handlers = [
-  // Handles specific country GET request
   rest.get(
     'https://restcountries.com/v3.1/alpha/:countryCode',
     (req, res, ctx) => {

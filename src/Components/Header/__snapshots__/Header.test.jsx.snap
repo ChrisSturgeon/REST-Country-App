@@ -4,7 +4,7 @@ exports[`Header Tests Matches snapshot 1`] = `
 <body>
   <div>
     <header
-      class="sc-beqWaB kMMTuv"
+      class="sc-beqWaB kPimXy"
     >
       <svg
         fill="none"
@@ -48,7 +48,8 @@ exports[`Header Tests Matches snapshot 1`] = `
         Where in the World?
       </h1>
       <button
-        class="sc-gueYoa lfsHSZ"
+        aria-label="Toggle darkmode on and off"
+        class="sc-gueYoa bmGAtn"
       >
         <svg
           fill="none"

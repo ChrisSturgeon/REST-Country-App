@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { device } from '../../../devices';
 
 export const StyledButton = styled.button`
+  cursor: pointer;
   position: relative;
   border: none;
   display: flex;

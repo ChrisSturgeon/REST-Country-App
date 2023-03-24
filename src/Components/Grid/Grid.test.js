@@ -4,14 +4,14 @@ import { screen, render } from '@testing-library/react';
 
 describe('Country Grid', () => {
   it('Displays "no countries found" when empty', () => {
-    render(<Grid countries={null} />);
+    render(<Grid countries={null} noCountries={true} />);
     expect(
-      screen.getByText(/No Countries Match Your Search/i)
+      screen.getByText(/No Countries Match Your Search!/i)
     ).toBeInTheDocument();
   });
 
   it('Does not display "no countries found" when not empty', () => {
-    render(<Grid countries={[]} />);
-    expect(screen.queryByText(/No Countries Match Your Search/i)).toBeNull();
+    render(<Grid countries={[]} noCountries={false} />);
+    expect(screen.queryByText(/No Countries Match Your Search!/i)).toBeNull();
   });
 });

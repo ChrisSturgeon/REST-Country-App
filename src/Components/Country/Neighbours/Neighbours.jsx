@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { StyledNeighbours } from './Neighbours.style';
 import { findCommonNamesByCountryCodes } from '../../../../helpers';

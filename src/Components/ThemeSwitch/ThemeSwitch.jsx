@@ -3,7 +3,11 @@ import { StyledButton } from './ThemeSwitch.style';
 
 export default function ThemeSwitch({ darkMode, toggleDarkMode }) {
   return (
-    <StyledButton darkMode={darkMode} onClick={toggleDarkMode}>
+    <StyledButton
+      darkMode={darkMode}
+      onClick={toggleDarkMode}
+      aria-label="Toggle darkmode on and off"
+    >
       <svg
         width="800px"
         height="800px"

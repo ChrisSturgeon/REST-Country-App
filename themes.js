@@ -6,6 +6,7 @@ const lightTheme = {
   reactSelectSelected: 'hsl(0, 0%, 42%)',
   svgGrey: 'hsl(0, 0%, 75%)',
   svgGreyHovered: 'hsl(0, 0%, 42%)',
+  topBtn: 'hsl(0, 0%, 27%)',
 };
 
 const darkTheme = {
@@ -16,6 +17,7 @@ const darkTheme = {
   reactSelectSelected: 'hsl(205, 37%, 39%)',
   svgGrey: 'hsl(0, 0%, 78%)',
   svgGreyHovered: 'hsl(0, 0%, 100%)',
+  topBtn: 'hsl(0, 0%, 100%)',
 };
 
 export { lightTheme, darkTheme };
