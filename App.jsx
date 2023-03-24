@@ -1,10 +1,11 @@
-import React, { createContext, useState, useMemo, useEffect } from 'react';
+import React from 'react';
 import Header from './src/Components/Header/Header';
 import GlobalStyle from './globalStyles';
 import { ThemeProvider } from 'styled-components';
 
 import {
   createBrowserRouter,
+  createHashRouter,
   RouterProvider,
   Navigate,
 } from 'react-router-dom';
@@ -16,7 +17,7 @@ import { useDarkMode } from './hooks/useDarkMode';
 import Footer from './src/Components/Footer/Footer';
 import Country from './src/Components/Country/Country';
 
-export const routesConfig = createBrowserRouter([
+export const routesConfig = createHashRouter([
   {
     path: '/',
     element: <Navigate to="/all" />,
