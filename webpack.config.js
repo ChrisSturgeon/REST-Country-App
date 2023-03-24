@@ -1,10 +1,19 @@
+const path = require('path');
+
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const htmlPlugin = new HtmlWebPackPlugin({
-  template: './public/index.html',
+  template: './src/index.html',
   filename: './index.html',
 });
 
 module.exports = {
+  entry: './src/index.js',
+
+  output: {
+    path: path.join(__dirname, '/dist'),
+    filename: 'bundle.js',
+  },
+
   devServer: {
     historyApiFallback: true,
   },
@@ -16,6 +25,9 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
         },
       },
       {
